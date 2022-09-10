@@ -19,22 +19,23 @@ def clean(folder: Path):
             if file.endswith(EXTENSIONS['images']):
                 shutil.move(os.path.join(folder), file_destination)
                 print(f'Image moved to "images": {file}')
-                elif file.endswith(EXTENSIONS['video']):
-                    shutil.move(os.path.join(folder), file_destination)
-                    print(f'Video moved to "videos":[file})
-                    elif file.endswith(EXTENSIONS['documents']):
-                        shutil.move(os.path.join(folder), file_destination)
-                        print(f'Document moved to "documents":[file})
-                        elif file.endswith(EXTENSIONS['audio']):
-                            shutil.move(os.path.join(folder), file_destination)
-                            print(f'Audio moved to "audio":[file})
-                            elif file.endswith(EXTENSIONS['archives']):
-                                shutil.move(os.path.join(folder), file_destination)
-                                print(f'Archive moved to "archives":[file})
+             elif file.endswith(EXTENSIONS['video']):
+                shutil.move(os.path.join(folder), file_destination)
+                print(f'Video moved to "videos":[file})
+             elif file.endswith(EXTENSIONS['documents']):
+                shutil.move(os.path.join(folder), file_destination)
+                print(f'Document moved to "documents":[file})
+             elif file.endswith(EXTENSIONS['audio']):
+                 shutil.move(os.path.join(folder), file_destination)
+                 print(f'Audio moved to "audio":[file})
+             elif file.endswith(EXTENSIONS['archives']):
+                 shutil.move(os.path.join(folder), file_destination)
+                 print(f'Archive moved to "archives":[file})
             sort_files(file, folder)
 
         # extracts the keys of the dictionary and compare to the existed
-        else file.name != EXTENSIONS.keys():
+        else:
+        if file.name not in EXTENSIONS.keys():
             subfolder = file
 # Get the list of all files and directories in current working directory, but the empty one. The rest remove.
             if not os.listdir(subfolder):
@@ -99,7 +100,6 @@ def main():
     if (not root_folder.exists()) and (not root_folder.is_dir()):
         print('Path incorrect')
 
-    root_folder = Path("/Users/olganazarenko/Downloads")
 
     clean(root_folder)
 
