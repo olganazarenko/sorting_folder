@@ -52,7 +52,7 @@ def sort_files(file: Path, folder: Path):
             #concatenates the path with the given arguments
             new_folder = folder.joinpath(folder_name)
 #create a new directory, to specify an existing directory without error by default it goes =False.
- #won't raise any exceptions if the directory exists.
+#won't raise any exceptions if the directory exists.
             new_folder.mkdir(exist_ok=True)
 # create a new file under a new name, normalize = removing first the suffix, the ending.
             new_file_name = normalize(file.name.removesuffix(file.suffix))
